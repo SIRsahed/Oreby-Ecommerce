@@ -87,8 +87,8 @@ const Navbar = () => {
                   <FaShoppingCart />
                 </div>
                 {cartShow &&
-                <div className="w-[360px] h-[241px] absolute top-[30px] right-0 bg-[#fff] border-[1px] border-[#262626]">
-                  <div className="flex justify-between items-center bg-[#F5F5F3] px-5 py-5">
+                <div className="lg:w-[360px] w-[300px] h-[241px] absolute top-[30px] right-0 bg-[#fff] border-[1px] border-[#262626]">
+                  <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-5">
                     <div className="">
                       <img className='h-[80px] w-[80px]' src={CartImg} alt="cart" />
                     </div>
@@ -103,7 +103,7 @@ const Navbar = () => {
                   <div className="py-[13px] px-5">
                     <h3 className='text-[#767676] text-[16px] font-sans font-normal'>Subtotal: <span className='text-[#262626] text-[16px] font-sans font-bold'>$44.00</span></h3>
                   </div>
-                  <div className="px-5 flex justify-between">
+                  <div className="lg:px-5 px-2 flex justify-between">
                     <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]' href="#">View Cart</a>
                     <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]' href="#">Checkout</a>
                   </div>
