@@ -58,7 +58,7 @@ const Banner = () => {
                 </div>
             </Slider>
             <Container>
-                <Flex className="justify-between lg:py-[30px] py-[10px]">
+                <Flex className="justify-between lg:py-[30px] py-[10px] px-1 lg:px-0">
                     <div className="flex items-center">
                         <h2 className='text-[#6D6D6D] lg:text-[16px] text-[11px] font-sans'><span className='lg:pr-5 pr-1 font-bold text-[#000]'>2</span>Two years warranty</h2>
                     </div>
