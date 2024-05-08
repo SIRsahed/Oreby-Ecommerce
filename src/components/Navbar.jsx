@@ -42,7 +42,7 @@ const Navbar = () => {
       <header className='bg-[#F5F5F3] lg:py-[25px] py-3 px-2 lg:px-0'>
         <Container>
           <Flex className="justify-between items-center">
-            <div className="lg:w-[30%] w-[10%] relative z-40">
+            <div className="lg:w-[30%] w-[10%] relative z-50">
               <div ref={menuRef} className="flex gap-x-3 items-center cursor-pointer">
                 <HiBars3CenterLeft />
                 <p className='text-[#262626] text-[16px] font-sans hidden lg:block'>Shop by Category</p>
@@ -69,7 +69,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="lg:w-[30%] w-[20%] flex justify-end relative">
-              <div className="flex lg:gap-x-4 gap-x-2">
+              <div className="flex lg:gap-x-4 gap-x-2 z-40">
                 <div ref={userRef} className="flex cursor-pointer z-40">
                   <FaUser />
                   <IoMdArrowDropdown />
