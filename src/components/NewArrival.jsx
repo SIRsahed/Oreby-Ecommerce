@@ -11,14 +11,14 @@ import { HiOutlineArrowNarrowRight, HiOutlineArrowNarrowLeft } from "react-icons
 function SampleNextArrow(props) {
     const { onClick } = props;
     return (
-      <div className='h-[50px] w-[50px] bg-[#979797] rounded-full text-center leading-[50px] absolute top-[50%] right-[-25px] translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowRight className='inline-block text-[25px] text-white'/></div>
+      <div className='lg:h-[50px] lg:w-[50px] w-[30px] h-[30px] bg-[#979797] rounded-full text-center lg:leading-[50px] leading-[30px] absolute top-[50%] lg:right-[-25px] right-0 translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowRight className='inline-block lg:text-[25px] text-white'/></div>
     );
   }
   
   function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
-      <div className='h-[50px] w-[50px] bg-[#979797] rounded-full text-center leading-[50px] absolute top-[50%] left-[-25px] translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowLeft className='inline-block text-[25px] text-white'/></div>
+      <div className='lg:h-[50px] lg:w-[50px] w-[30px] h-[30px] bg-[#979797] rounded-full text-center lg:leading-[50px] leading-[30px] absolute top-[50%] lg:left-[-25px] left-0 translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowLeft className='inline-block lg:text-[25px] text-white'/></div>
     );
 }
 
@@ -39,7 +39,15 @@ const NewArrival = () => {
                 slidesToShow: 1,
                 slidesToScroll: 1,
               }
-            }]
+            },
+            {
+                breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              }
+            }
+        ]
     };
     let data = useContext(apiData)
     return (
