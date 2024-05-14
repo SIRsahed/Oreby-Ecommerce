@@ -1,17 +1,46 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Container from './Container'
 import Flex from './Flex'
-import NA1 from "../assets/na1.png"
-import NA2 from "../assets/na2.png"
-import NA3 from "../assets/na3.png"
-import NA4 from "../assets/na4.png"
 import { FaHeart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { FaShoppingCart } from "react-icons/fa";
 import { apiData } from './ContextApi'
+import Slider from "react-slick";
+import { HiOutlineArrowNarrowRight, HiOutlineArrowNarrowLeft } from "react-icons/hi";
+
+function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className='h-[50px] w-[50px] bg-[#979797] rounded-full text-center leading-[50px] absolute top-[50%] right-[-25px] translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowRight className='inline-block text-[25px] text-white'/></div>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className='h-[50px] w-[50px] bg-[#979797] rounded-full text-center leading-[50px] absolute top-[50%] left-[-25px] translate-y-[-50%] z-50' onClick={onClick}><HiOutlineArrowNarrowLeft className='inline-block text-[25px] text-white'/></div>
+    );
+}
 
 
 const NewArrival = () => {
+    
+    var settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              }
+            }]
+    };
     let data = useContext(apiData)
     return (
         <>
@@ -20,11 +49,11 @@ const NewArrival = () => {
                     <div className="">
                         <h2 className='font-sans text-[#262626] lg:text-[36px] text-[20px] font-bold lg:pb-[48px] pb-[10px]'>New Arrivals</h2>
                     </div>
-                    <Flex className="justify-between flex-wrap">
+                    <Slider {...settings}>
                         {data.map((item) => (
-                            <div className="lg:w-[24%] w-[49%] group lg:pb-0 lg:mb-[50px] mb-[30px] bg-[#f6f3f3] p-[10px] border-[1px] border-[#000] duration-300 ease-in-out hover:shadow-2xl">
+                            <div className="lg:w-[96%] bg-[#f6f3f3] border-[1px] border-[#000] group p-[10px]">
                                 <div className="relative overflow-hidden">
-                                    <img className='w-full lg:h-[250px] h-[150px]' src={item.thumbnail} alt="na1" />
+                                    <img className='w-full lg:h-[250px] h-[150px]' src={item.thumbnail} alt="product_img" />
                                     <h5 className='absolute top-[20px] left-[26px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>
                                     <div className="w-full lg:h-[50%] bg-[#fff] absolute left-0 bottom-[-150px] lg:pt-[25px] pt-[10px] lg:pr-[30px] pr-[15px] flex flex-col lg:gap-y-2 gap-y-1 duration-500 ease-in-out group-hover:bottom-0">
                                         <div className="flex gap-x-3 justify-end items-center">
@@ -50,7 +79,7 @@ const NewArrival = () => {
                                 <h5 className='text-[#767676] font-sans text-[16px] font-normal pb-[10px]'>Available Stock: {item.stock}</h5>
                             </div>
                         ))}
-                    </Flex>
+                    </Slider>
                 </Container>
             </section>
         </>
