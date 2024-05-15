@@ -39,10 +39,10 @@ const Navbar = () => {
   }, [menuShow, userShow, cartShow])
   return (
     <>
-      <header className='bg-[#F5F5F3] lg:py-[25px] py-3 px-2 lg:px-0'>
+      <header className='bg-[#F5F5F3] lg:pb-[25px] pb-3 lg:pt-[100px] pt-[40px] px-2 lg:px-0'>
         <Container>
           <Flex className="justify-between items-center">
-            <div className="lg:w-[30%] w-[10%] relative z-50">
+            <div className="lg:w-[30%] w-[10%] relative z-40">
               <div ref={menuRef} className="flex gap-x-3 items-center cursor-pointer">
                 <HiBars3CenterLeft />
                 <p className='text-[#262626] text-[16px] font-sans hidden lg:block'>Shop by Category</p>

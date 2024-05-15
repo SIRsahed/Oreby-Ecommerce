@@ -10,7 +10,7 @@ const Header = () => {
   let [show, setShow] = useState(false)
   return (
     <>
-      <nav className='lg:h-[80px] relative z-50 px-2 lg:px-0 lg:py-0 py-2'>
+      <nav className='lg:h-[80px] h-[30px] fixed top-0 left-0 w-full bg-white z-50 px-2 lg:px-0 lg:py-0 py-2'>
         <Container>
           <Flex className="justify-between lg:h-[80px] items-center">
             <div className="w-1/3 items-center">
