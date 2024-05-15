@@ -4,6 +4,7 @@ import Flex from './Flex'
 import Logo from "../assets/logo.png"
 import { RxCross2 } from "react-icons/rx";
 import { FaBars } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   let [show, setShow] = useState(false)
@@ -17,8 +18,8 @@ const Header = () => {
             </div>
             <div className="w-2/3">
               <ul className={`lg:flex lg:flex-row flex flex-col gap-y-3 gap-x-10 items-center font-sans text-[#767676] text-[18px] font-medium lg:static fixed duration-[800ms] ${show == true ? "bg-[#262626] top-[30px] left-0 w-full text-center py-2" : "top-[30px] left-[-100px]"}`}>
-                <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#">Home</a></li>
-                <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#">Shop</a></li>
+                <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#"><Link to="/">Home</Link></a></li>
+                <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#"><Link to="/shop">Shop</Link></a></li>
                 <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#">About</a></li>
                 <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#">Contacts</a></li>
                 <li><a className='lg:hover:text-[#262626] hover:bg-[#fff] rounded-sm' href="#">Journal</a></li>
