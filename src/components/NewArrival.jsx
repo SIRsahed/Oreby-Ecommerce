@@ -58,7 +58,7 @@ const NewArrival = () => {
                     </div>
                     <Slider {...settings}>
                         {data.map((item) => (
-                            <div className="!w-[95%] px-0 group">
+                            <div className="px-[10px] group">
                                 <div className="relative overflow-hidden">
                                     <img className='w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
                                     <h5 className='absolute top-[20px] left-[26px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>

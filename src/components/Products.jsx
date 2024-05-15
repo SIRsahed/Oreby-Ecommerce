@@ -65,8 +65,8 @@ const Products = () => {
             <div className="w-[78%]">
               <div className="flex justify-between">
                 <div className="flex gap-x-5 lg:pb-[50px] pb-[30px]">
-                  <div className="h-[36px] w-[36px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373]"><PiSquaresFourFill/></div>
-                  <div className="h-[36px] w-[36px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373]"><GrSort/></div>
+                  <div className="h-[46px] w-[46px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373] text-[20px]"><PiSquaresFourFill/></div>
+                  <div className="h-[46px] w-[46px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373] text-[20px]"><GrSort/></div>
                 </div>
                 <div className="flex justify-between gap-x-10">
                   <div className="">
