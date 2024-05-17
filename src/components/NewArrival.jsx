@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { apiData } from './ContextApi'
 import Slider from "react-slick";
 import { HiOutlineArrowNarrowRight, HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 function SampleNextArrow(props) {
     const { onClick } = props;
@@ -17,7 +18,7 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { onClick } = props;
     return (
-      <div className='lg:h-[50px] lg:w-[50px] w-[30px] h-[30px] bg-[#979797] rounded-full text-center lg:leading-[50px] leading-[28px] absolute top-[28%] lg:left-[-25px] left-0 z-40' onClick={onClick}><HiOutlineArrowNarrowLeft className='inline-block lg:text-[25px] text-white'/></div>
+      <div className='lg:h-[50px] lg:w-[50px] w-[30px] h-[30px] bg-[#979797] rounded-full text-center lg:leading-[50px] leading-[28px] absolute top-[28%] lg:left-[-15px] left-0 z-40' onClick={onClick}><HiOutlineArrowNarrowLeft className='inline-block lg:text-[25px] text-white'/></div>
     );
 }
 
@@ -58,7 +59,8 @@ const NewArrival = () => {
                     </div>
                     <Slider {...settings}>
                         {data.map((item) => (
-                            <div className="px-[10px] group">
+                            <Link to="/shop">
+                                <div className="px-[10px] group">
                                 <div className="relative overflow-hidden">
                                     <img className='w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
                                     <h5 className='absolute top-[20px] left-[26px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>
@@ -84,7 +86,9 @@ const NewArrival = () => {
                                     <h4 className='text-[#767676] font-sans lg:text-[20px] text-[16px] font-normal '>${item.price}</h4>
                                 </div>
                                 <h5 className='text-[#767676] font-sans lg:text-[18px] text-[16px] font-normal pb-[10px]'>Available Stock: {item.stock}</h5>
-                            </div>
+                                </div>
+                            </Link>
+
                         ))}
                     </Slider>
                 </Container>
