@@ -8,7 +8,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { RxCaretRight } from "react-icons/rx";
 import { PiSquaresFourFill } from "react-icons/pi";
 import { GrSort } from "react-icons/gr";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp} from "react-icons/fa";
 
 const Products = () => {
   let data = useContext(apiData)
@@ -28,50 +28,50 @@ const Products = () => {
           <div className="lg:flex justify-between">
             <div className="lg:w-[20%] w-[100%]">
               <div className="">
-                <h3 onClick={()=>setCatShow(!catshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Category <FaCaretDown/></h3>
+                <h3 onClick={()=>setCatShow(!catshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Category <p>{catshow == true ? <FaCaretUp/> : <FaCaretDown/>}</p></h3>
                 {catshow &&
                 <ul>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Category 1</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Category 2</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Category 3</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Category 4</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Category 5</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 1</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 2</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 3</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 4</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 5</li>
                 </ul>
                 }
               </div>
-              <div className="lg:pt-[20px] pt-2">
-              <h3 onClick={()=>setColShow(!colshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Color <FaCaretDown/></h3>
+              <div className="lg:pt-[50px] pt-3">
+              <h3 onClick={()=>setColShow(!colshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Color <p>{colshow == true ? <FaCaretUp/> : <FaCaretDown/>}</p></h3>
                 {colshow &&
                 <ul>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-black pl-5'>Color 1</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#FF8686] pl-5'>Color 2</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#7ED321] pl-5'>Color 3</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#B6B6B6] pl-5'>Color 4</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#15CBA5] pl-5'>Color 5</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-black pl-5'>Color 1</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#FF8686] pl-5'>Color 2</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#7ED321] pl-5'>Color 3</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#B6B6B6] pl-5'>Color 4</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] relative after:absolute after:left-0 after:top-[50%] after:translate-y-[-50%] after:h-[10px] after:w-[10px] after:rounded-full after:bg-[#15CBA5] pl-5'>Color 5</li>
                 </ul>
                 }
               </div>
-              <div className="lg:pt-[20px] pt-2">
-              <h3 onClick={()=>setBraShow(!brashow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Brand <FaCaretDown/></h3>
+              <div className="lg:pt-[50px] pt-3">
+              <h3 onClick={()=>setBraShow(!brashow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Brand <p>{brashow == true ? <FaCaretUp/> : <FaCaretDown/>}</p></h3>
                 {brashow &&
                 <ul>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Brand 1</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Brand 2</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Brand 3</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Brand 4</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>Brand 5</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 1</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 2</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 3</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 4</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 5</li>
                 </ul>
                 }
               </div>
-              <div className="lg:pt-[20px] pt-2">
-              <h3 onClick={()=>setPriShow(!prishow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Price <FaCaretDown/></h3>
+              <div className="lg:pt-[50px] pt-3">
+              <h3 onClick={()=>setPriShow(!prishow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Price <p>{prishow == true ? <FaCaretUp/> : <FaCaretDown/>}</p></h3>
                 {prishow &&
                 <ul>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>$0.00 - $9.99</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>$10.00 - $19.99</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>$20.00 - $29.99</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>$30.00 - $39.99</li>
-                  <li className='font-sans text-[16px] font-normal text-[#767676] py-5 border-b-2 border-[#F0F0F0]'>$40.00 - $69.99</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$0.00 - $9.99</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$10.00 - $19.99</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$20.00 - $29.99</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$30.00 - $39.99</li>
+                  <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$40.00 - $69.99</li>
                 </ul>
                 }
               </div>
