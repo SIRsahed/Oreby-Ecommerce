@@ -8,9 +8,28 @@ import { GrSort } from "react-icons/gr";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Post from './pagination/Post';
+import PaginationArea from './pagination/PaginationArea';
 
 const Products = () => {
   let data = useContext(apiData)
+
+  let [currentPage, setCurrentpage] = useState(1)
+  let [perPage, setPerPage] = useState(6)
+
+  let lastPage = currentPage * perPage
+  let firstPage = lastPage - perPage
+
+  let allData = data.slice(firstPage, lastPage)
+
+  let pageNumber = []
+
+  for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
+    pageNumber.push(i)
+  }
+
+  let paginate = (pageNumber) => {
+    setCurrentpage(pageNumber + 1);
+  }
 
   let [catshow, setCatShow] = useState(false)
   let [colshow, setColShow] = useState(false)
@@ -100,9 +119,16 @@ const Products = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-between flex-wrap">
-                <Post/>
-              </div>
+              <Flex>
+                <div className="">
+                  <div className="flex justify-between flex-wrap">
+                    <Post allData={allData} />
+                  </div>
+                  <div className="text-end">
+                    <PaginationArea pageNumber={pageNumber} paginate={paginate} />
+                  </div>
+                </div>
+              </Flex>
             </div>
           </div>
         </Container>

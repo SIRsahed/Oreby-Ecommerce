@@ -5,11 +5,11 @@ import { FaHeart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { FaShoppingCart } from "react-icons/fa";
 
-const Post = () => {
+const Post = ({allData}) => {
     let data = useContext(apiData)
   return (
     <>
-        {data.map((item) => (
+        {allData.map((item) => (
                   <div className="lg:w-[32%] w-[48%] px-0 group mb-[30px]">
                     <Link to={`/shop/${item.id}`}>
                       <div className="">
