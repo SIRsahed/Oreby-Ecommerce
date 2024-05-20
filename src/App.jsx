@@ -2,6 +2,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import RootLayOut from "./components/RootLayOut"
 import Home from "./Pages/Home"
 import Shop from "./Pages/Shop"
+import ProductDetails from "./Pages/ProductDetails"
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Route element={<RootLayOut/>}>
        <Route path="/" element={<Home/>}/>
        <Route path="/shop" element={<Shop/>}/>
+       <Route path="/shop/:id" element={<ProductDetails/>}/>
     </Route>
   ))
   return (
