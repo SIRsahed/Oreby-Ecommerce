@@ -25,7 +25,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <section className='py-10'>
+      <section className='py-10 px-1 lg:px-0'>
         <Container>
           <Flex className="flex-wrap  justify-between items-center">
             {singleData?.images?.map((item) => (
@@ -100,35 +100,26 @@ const ProductDetails = () => {
               <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Wish List</button>
               <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Cart</button>
             </div>
-            <Accordion collapseAll>
+            <div className="py-6 border-b-[1px] border-[#F0F0F0]">
+            <Accordion collapseAll className='!border-none lg:w-[750px] w-full'>
               <Accordion.Panel>
-                <Accordion.Title>What is Flowbite?</Accordion.Title>
-                <Accordion.Content>
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
+                <Accordion.Title className='py-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>FEATURES  & DETAILS</Accordion.Title>
+                <Accordion.Content className='py-3 px-2'>
+                  <p className="mb-2 text-[#767676]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                 </Accordion.Content>
               </Accordion.Panel>
               <Accordion.Panel>
-                <Accordion.Title>Is there a Figma file available?</Accordion.Title>
-                <Accordion.Content>
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
-                    has a design equivalent in our Figma file.
-                  </p>
-                </Accordion.Content>
-              </Accordion.Panel>
-              <Accordion.Panel>
-                <Accordion.Title>What are the differences between Flowbite and Tailwind UI?</Accordion.Title>
-                <Accordion.Content>
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    The main difference is that the core components from Flowbite are open source under the MIT license, whereas
-                    Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
-                    components, whereas Tailwind UI offers sections of pages.
+                <Accordion.Title className='pt-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>SHIPPING & RETURNS</Accordion.Title>
+                <Accordion.Content className='py-3 px-2'>
+                  <p className="mb-2 text-[#767676]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                 </Accordion.Content>
               </Accordion.Panel>
             </Accordion>
+            </div>
           </div>
         </Container>
       </section>
