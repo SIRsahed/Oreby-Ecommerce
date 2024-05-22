@@ -31,6 +31,18 @@ const Products = () => {
     setCurrentpage(pageNumber + 1);
   }
 
+  let prev = () => {
+    if(currentPage > 1){
+      setCurrentpage((state) => state - 1)
+    }
+  }
+
+  let next = () => {
+    if(currentPage < pageNumber.length){
+      setCurrentpage((state) => state + 1)
+    }
+  }
+
   let [catshow, setCatShow] = useState(false)
   let [colshow, setColShow] = useState(false)
   let [brashow, setBraShow] = useState(false)
@@ -125,7 +137,7 @@ const Products = () => {
                     <Post allData={allData} />
                   </div>
                   <div className="text-end">
-                    <PaginationArea pageNumber={pageNumber} paginate={paginate} />
+                    <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} />
                   </div>
                 </div>
               </Flex>
