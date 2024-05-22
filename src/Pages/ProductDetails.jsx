@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Container from '../components/Container';
 import Flex from '../components/Flex';
-import DetailsImg from "../assets/dp.png";
 import { FaStar } from "react-icons/fa";
+import { Accordion } from "flowbite-react";
 
 
 const ProductDetails = () => {
@@ -28,11 +28,11 @@ const ProductDetails = () => {
       <section className='py-10'>
         <Container>
           <Flex className="flex-wrap  justify-between items-center">
-          {singleData?.images?.map((item)=>(
-            <div className="lg:w-[48%] w-full my-4">
-              <img src={item} className='w-full lg:h-[450px] h-[250px]' alt="Pdetails" />
-            </div>
-          ))}
+            {singleData?.images?.map((item) => (
+              <div className="lg:w-[48%] w-full my-4">
+                <img src={item} className='w-full lg:h-[450px] h-[250px]' alt="Pdetails" />
+              </div>
+            ))}
           </Flex>
           <div className="">
             <h3 className='font-sans font-bold text-[39px] text-[#262626] pt-[30px] pb-[18px]'>Product</h3>
@@ -100,6 +100,35 @@ const ProductDetails = () => {
               <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Wish List</button>
               <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Cart</button>
             </div>
+            <Accordion collapseAll>
+              <Accordion.Panel>
+                <Accordion.Title>What is Flowbite?</Accordion.Title>
+                <Accordion.Content>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
+                  </p>
+                </Accordion.Content>
+              </Accordion.Panel>
+              <Accordion.Panel>
+                <Accordion.Title>Is there a Figma file available?</Accordion.Title>
+                <Accordion.Content>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
+                    has a design equivalent in our Figma file.
+                  </p>
+                </Accordion.Content>
+              </Accordion.Panel>
+              <Accordion.Panel>
+                <Accordion.Title>What are the differences between Flowbite and Tailwind UI?</Accordion.Title>
+                <Accordion.Content>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    The main difference is that the core components from Flowbite are open source under the MIT license, whereas
+                    Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
+                    components, whereas Tailwind UI offers sections of pages.
+                  </p>
+                </Accordion.Content>
+              </Accordion.Panel>
+            </Accordion>
           </div>
         </Container>
       </section>
