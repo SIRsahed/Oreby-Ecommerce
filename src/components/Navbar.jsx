@@ -39,7 +39,7 @@ const Navbar = () => {
   }, [menuShow, userShow, cartShow])
   return (
     <>
-      <header className='bg-[#F5F5F3] lg:pb-[25px] pb-3 lg:pt-[80px] pt-[40px] px-2 lg:px-0'>
+      <header className='bg-[#F5F5F3] lg:pb-[25px] pb-3 lg:pt-[90px] pt-[50px] px-2 lg:px-0'>
         <Container>
           <Flex className="justify-between items-center">
             <div className="lg:w-[30%] w-[10%] relative z-40">
