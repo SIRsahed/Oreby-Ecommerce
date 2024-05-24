@@ -3,6 +3,8 @@ import RootLayOut from "./components/RootLayOut"
 import Home from "./Pages/Home"
 import Shop from "./Pages/Shop"
 import ProductDetails from "./Pages/ProductDetails"
+import Cart from "./Pages/Cart"
+import ErrorPage from "./Pages/ErrorPage"
 
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
        <Route path="/" element={<Home/>}/>
        <Route path="/shop" element={<Shop/>}/>
        <Route path="/shop/:id" element={<ProductDetails/>}/>
+       <Route path="/cart" element={<Cart/>}/>
+       <Route path="*" element={<ErrorPage/>}/>
     </Route>
   ))
   return (

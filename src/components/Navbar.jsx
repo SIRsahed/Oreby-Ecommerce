@@ -6,6 +6,7 @@ import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import CartImg from "../assets/cart.png"
 import { ImCross } from "react-icons/im";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -87,27 +88,35 @@ const Navbar = () => {
                   <FaShoppingCart />
                 </div>
                 {cartShow &&
-                <div className="lg:w-[360px] w-[300px] h-[241px] absolute top-[30px] right-0 bg-[#fff] border-[1px] border-[#262626]">
-                  <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-5">
-                    <div className="">
-                      <img className='h-[80px] w-[80px]' src={CartImg} alt="cart" />
+                  <div className="lg:w-[360px] w-[300px] h-[241px] absolute top-[30px] right-0 bg-[#fff] border-[1px] border-[#262626]">
+                    <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-5">
+                      <div className="">
+                        <img className='h-[80px] w-[80px]' src={CartImg} alt="cart" />
+                      </div>
+                      <div className="text-[#262626] text-[16px] font-sans font-bold">
+                        <h3 className='pb-[12px]'>Black Smart Watch</h3>
+                        <h4>$44.00</h4>
+                      </div>
+                      <div className="">
+                        <ImCross />
+                      </div>
                     </div>
-                    <div className="text-[#262626] text-[16px] font-sans font-bold">
-                      <h3 className='pb-[12px]'>Black Smart Watch</h3>
-                      <h4>$44.00</h4>
+                    <div className="py-[13px] px-5">
+                      <h3 className='text-[#767676] text-[16px] font-sans font-normal'>Subtotal: <span className='text-[#262626] text-[16px] font-sans font-bold'>$44.00</span></h3>
                     </div>
-                    <div className="">
-                      <ImCross/>
+                    <div className="lg:px-5 px-2 flex justify-between pt-4">
+                      <div className="">
+                        <Link to="/cart">
+                          <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]'>View Cart</a>
+                        </Link>
+                      </div>
+                      <div className="">
+                        <Link to="/checkout">
+                          <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]'>Checkout</a>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                  <div className="py-[13px] px-5">
-                    <h3 className='text-[#767676] text-[16px] font-sans font-normal'>Subtotal: <span className='text-[#262626] text-[16px] font-sans font-bold'>$44.00</span></h3>
-                  </div>
-                  <div className="lg:px-5 px-2 flex justify-between">
-                    <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]' href="#">View Cart</a>
-                    <a className='text-[#262626] text-[16px] font-sans font-bold px-[30px] py-[14px] border-2 border-[#2B2B2B] duration-300 hover:bg-[#262626] hover:text-[#fff]' href="#">Checkout</a>
-                  </div>
-                </div>
                 }
               </div>
             </div>

@@ -1,15 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Container from '../components/Container';
 import Flex from '../components/Flex';
 import { FaStar } from "react-icons/fa";
 import { Accordion } from "flowbite-react";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../components/slice/ProductSlice';
 
 
 const ProductDetails = () => {
   let [singleData, setSingleData] = useState([])
   let productId = useParams()
+  let dispatch = useDispatch()
 
 
   let getData = () => {
@@ -21,6 +24,10 @@ const ProductDetails = () => {
   useEffect(() => {
     getData()
   }, [])
+
+  let handleAddToCart = (item) => {
+    dispatch(addToCart({ ...item, Qty: 1 }))
+  }
 
 
   return (
@@ -98,27 +105,29 @@ const ProductDetails = () => {
             </div>
             <div className="flex gap-x-6 items-center py-6 border-b-[1px] border-[#F0F0F0]">
               <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Wish List</button>
-              <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Cart</button>
+              <Link to="/cart" onClick={() => handleAddToCart(singleData)}>
+                <button className='font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white'>Add to Cart</button>
+              </Link>
             </div>
             <div className="py-6 border-b-[1px] border-[#F0F0F0]">
-            <Accordion collapseAll className='!border-none lg:w-[750px] w-full'>
-              <Accordion.Panel>
-                <Accordion.Title className='py-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>FEATURES  & DETAILS</Accordion.Title>
-                <Accordion.Content className='py-3 px-2'>
-                  <p className="mb-2 text-[#767676]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                </Accordion.Content>
-              </Accordion.Panel>
-              <Accordion.Panel>
-                <Accordion.Title className='pt-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>SHIPPING & RETURNS</Accordion.Title>
-                <Accordion.Content className='py-3 px-2'>
-                  <p className="mb-2 text-[#767676]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                </Accordion.Content>
-              </Accordion.Panel>
-            </Accordion>
+              <Accordion collapseAll className='!border-none lg:w-[750px] w-full'>
+                <Accordion.Panel>
+                  <Accordion.Title className='py-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>FEATURES  & DETAILS</Accordion.Title>
+                  <Accordion.Content className='py-3 px-2'>
+                    <p className="mb-2 text-[#767676]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </Accordion.Content>
+                </Accordion.Panel>
+                <Accordion.Panel>
+                  <Accordion.Title className='pt-5 border-t-2 px-2 !font-sans !font-bold !text-[14px] !text-[#262626]'>SHIPPING & RETURNS</Accordion.Title>
+                  <Accordion.Content className='py-3 px-2'>
+                    <p className="mb-2 text-[#767676]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </Accordion.Content>
+                </Accordion.Panel>
+              </Accordion>
             </div>
           </div>
         </Container>

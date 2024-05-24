@@ -4,6 +4,7 @@ import Flex from './Flex'
 import Logo from "../assets/logo.png"
 import {FaLinkedinIn,FaInstagram  } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -13,10 +14,14 @@ const Footer = () => {
     <Container>
       <Flex className=" flex-wrap">
             <div className="lg:w-[15%] w-[30%]">
-              <h3 className='font-sans text-[16px] font-bold text-[#262626] uppercase leading-[23px]'>menu</h3>
+              <h3 className='font-sans text-[16px] font-bold text-[#262626] uppercase leading-[23px]'>Menu</h3>
               <ul className='mt-4'>
-                <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Home</li>
-                <li className='font-dmsans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Shop</li>
+                <Link to="/">
+                  <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Home</li>
+                </Link>
+                <Link to="/shop">
+                  <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Shop</li>
+                </Link>
 
                 <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>About</li>
 
