@@ -53,7 +53,7 @@ const Products = () => {
         <Container>
           <div className="lg:pb-[70px] pb-[10px]">
             <h2 className='font-sans text-[#262626] lg:text-[36px] text-[20px] font-bold'>Products</h2>
-            <h3 className='flex items-center gap-x-2 font-sans text-[12px] text-[#767676] font-normal'>Home <RxCaretRight /> Products</h3>
+            <Link to="/"><h3 className='flex items-center gap-x-2 font-sans text-[12px] text-[#767676] font-normal'>Home <RxCaretRight /> Products</h3></Link>
           </div>
           <div className="lg:flex justify-between">
             <div className="lg:w-[20%] w-[100%]">

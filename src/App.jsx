@@ -26,7 +26,7 @@ function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 3500)
+    }, 2500)
   }, [])
 
   let router = createBrowserRouter(createRoutesFromElements(
