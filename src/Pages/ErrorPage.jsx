@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ErrorPage = () => {
     return (
         <>
-            <section className='lg:py-[80px] py-[30px] text-center lg:text-start'>
+            <section className='lg:py-[50px] py-[30px] text-center lg:text-start'>
                 <Container>
                     <div className="">
                         <h3 className='font-sans font-bold lg:text-[200px] text-[100px] text-[#262626]'>404</h3>

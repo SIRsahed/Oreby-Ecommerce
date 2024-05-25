@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Cart = () => {
   return (
     <>
-        <h2>Cart</h2>
+        <div className="">
+          <h2>Cart</h2>
+        </div>
     </>
   )
 }
