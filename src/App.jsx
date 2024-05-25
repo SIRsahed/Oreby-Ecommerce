@@ -11,7 +11,7 @@ import { ClockLoader } from "react-spinners"
 
 let cssoverride = {
   display: "block",
-  backgroundColor: "#333333",
+  backgroundColor: "#002147",
   borderColor: "#36d7b7",
   position: "absolute",
   top: "50%",

@@ -14,7 +14,6 @@ const ProductDetails = () => {
   let productId = useParams()
   let dispatch = useDispatch()
 
-
   let getData = () => {
     axios.get(`https://dummyjson.com/products/${productId.id}`).then((response) => {
       setSingleData(response.data);

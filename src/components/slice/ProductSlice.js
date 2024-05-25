@@ -7,8 +7,7 @@ export const ProductSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-        let findProduct = state.cartItem.findIndex(item => item.id == action.payload.id)
-        console.log(findProduct);
+        let findProduct = state.cartItem.findIndex((item) => item.id == action.payload.id)
     }
   },
 })
