@@ -89,6 +89,26 @@ const Cart = () => {
               </Flex>
             </div>
           ))}
+          <div className="text-end">
+            <div className="">
+              <h3 className="font-sans text-[20px] text-[#262626] font-bold pb-[24px] pt-[50px]">Cart Total</h3>
+            </div>
+            <div className="flex justify-end pb-[45px]">
+              <table className="border-2">
+                <tr>
+                  <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-bold">Subtotal</td>
+                  <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#767676] font-normal">389.99 $</td>
+                </tr>
+                <tr>
+                  <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-bold">Total</td>
+                  <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-normal">389.99 $</td>
+                </tr>
+              </table>
+            </div>
+            <div className="">
+              <button className="font-sans text-[16px] text-[#FFF] font-bold py-[16px] px-[25px] bg-[#262626]">Proceed to Checkout</button>
+            </div>
+          </div>
         </Container>
       </section>
     </>
