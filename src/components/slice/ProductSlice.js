@@ -18,10 +18,20 @@ export const ProductSlice = createSlice({
     },
     qtyIncrement : (state, action)=>{
       state.cartItem[action.payload].Qty += 1
+      localStorage.setItem("cart", JSON.stringify(state.cartItem))
+    },
+    qtyDecrement : (state, action)=>{
+      if(state.cartItem[action.payload].Qty >= 2){
+        state.cartItem[action.payload].Qty -= 1
+        localStorage.setItem("cart", JSON.stringify(state.cartItem))
+      }
+    },
+    cartItemDelete : (state, action) => {
+      state.cartItem[action].splice(0, state)
     }
   },
 })
 
-export const { addToCart, qtyIncrement } = ProductSlice.actions
+export const { addToCart, qtyIncrement, qtyDecrement, cartItemDelete } = ProductSlice.actions
 
 export default ProductSlice.reducer
