@@ -6,6 +6,7 @@ import ProductDetails from "./Pages/ProductDetails"
 import Cart from "./Pages/Cart"
 import ErrorPage from "./Pages/ErrorPage"
 import { ClockLoader } from "react-spinners"
+import Checkout from "./Pages/Checkout"
 
 function App() {
   let router = createBrowserRouter(createRoutesFromElements(
@@ -14,6 +15,7 @@ function App() {
       <Route path="/shop" element={<Shop />} />
       <Route path="/shop/:id" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   ))

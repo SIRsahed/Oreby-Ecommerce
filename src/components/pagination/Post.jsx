@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
-import { apiData } from '../ContextApi'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FaHeart } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slice/ProductSlice';
 
 const Post = ({allData}) => {
-    let data = useContext(apiData)
+
+    let dispatch = useDispatch()
+
+    let handleAddToCart = (item) => {
+      dispatch(addToCart({ ...item, Qty: 1 }));
+    };
+
   return (
     <>
         {allData.map((item) => (
@@ -16,6 +23,7 @@ const Post = ({allData}) => {
                         <div className="relative overflow-hidden">
                           <img className='w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
                           <h5 className='absolute top-[20px] left-[26px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>
+                          <Link to="#">
                           <div className="w-full lg:h-[50%] bg-[#fff] absolute left-0 bottom-[-150px] lg:pt-[25px] pt-[10px] lg:pr-[30px] pr-[15px] flex flex-col lg:gap-y-2 gap-y-1 duration-500 ease-in-out group-hover:bottom-0">
                             <div className="flex gap-x-3 justify-end items-center">
                               <h3 className='text-[#767676] font-sans lg:text-[16px] text-[12px] font-normal hover:text-[#262626] hover:font-bold duration-300 ease-in-out'>Add to Wish List</h3>
@@ -26,11 +34,11 @@ const Post = ({allData}) => {
                               <TfiReload />
                             </div>
                             <div className="flex gap-x-3 justify-end items-center">
-                              <h3 className='text-[#767676] font-sans lg:text-[16px] text-[12px] font-normal hover:text-[#262626] hover:font-bold duration-300 ease-in-out'>Add to Cart</h3>
+                              <h3 onClick={()=>handleAddToCart(item)} className='text-[#767676] font-sans lg:text-[16px] text-[12px] font-normal hover:text-[#262626] hover:font-bold duration-300 ease-in-out'>Add to Cart</h3>
                               <FaShoppingCart />
                             </div>
-
                           </div>
+                          </Link>
                         </div>
 
                         <div className="flex justify-between pt-[15px] relative z-20 items-center">
