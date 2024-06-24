@@ -47,6 +47,8 @@ const Navbar = () => {
     dispatch(cartItemDelete(index))
   }
 
+  console.log(data);
+
   const {totalPrice} = data.reduce((acc, item) => {
     acc.totalPrice += item.price * item.Qty
     return acc
@@ -58,7 +60,7 @@ const Navbar = () => {
         <Container>
           <Flex className="justify-between items-center">
             <div className="lg:w-[30%] w-[10%] relative z-40">
-              <div ref={menuRef} className="flex gap-x-3 items-center cursor-pointer">
+              <div ref={menuRef} className="flex gap-x-3 items-center cursor-pointer text-[22px]">
                 <HiBars3CenterLeft />
                 <p className='text-[#262626] text-[16px] font-sans hidden lg:block'>Shop by Category</p>
               </div>
@@ -85,7 +87,7 @@ const Navbar = () => {
             </div>
             <div className="lg:w-[30%] w-[20%] flex justify-end relative">
               <div className="flex lg:gap-x-4 gap-x-2 z-40">
-                <div ref={userRef} className="flex cursor-pointer z-40">
+                <div ref={userRef} className="flex cursor-pointer z-40 text-[22px]">
                   <FaUser />
                   <IoMdArrowDropdown />
                 </div>
@@ -99,7 +101,12 @@ const Navbar = () => {
                   </div>
                 }
                 <div ref={cartRef} className="cursor-pointer z-40">
+                  <div className="relative text-[22px]">
                   <FaShoppingCart />
+                  <div className="absolute left-[9px] top-[-8px] h-[20px] w-[20px] rounded-full flex justify-center items-center bg-[#767676] text-[15px] text-white">
+                    {data.length}
+                  </div>
+                  </div>
                 </div>
                 {cartShow &&
                   <div className="lg:w-[360px] w-[300px] absolute top-[30px] right-0 bg-[#fff]">
