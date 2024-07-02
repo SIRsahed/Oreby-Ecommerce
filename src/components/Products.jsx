@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from './Container'
 import Flex from './Flex'
 import { apiData } from './ContextApi'
@@ -12,41 +12,60 @@ import PaginationArea from './pagination/PaginationArea';
 
 const Products = () => {
   let data = useContext(apiData)
-
   let [currentPage, setCurrentpage] = useState(1)
-  let [perPage, setPerPage] = useState(6)
+  let [perPage, setPerPage] = useState(18)
+  let [catshow, setCatShow] = useState(false)
+  let [colshow, setColShow] = useState(false)
+  let [brashow, setBraShow] = useState(false)
+  let [prishow, setPriShow] = useState(false)
+  let [category, setCategory] = useState([])
+  let [brand, setBrand] = useState([])
+  let [catwiseitem, setCatwiseitem] = useState([])
 
+  console.log(catwiseitem);
+  
   let lastPage = currentPage * perPage
   let firstPage = lastPage - perPage
 
   let allData = data.slice(firstPage, lastPage)
 
   let pageNumber = []
-
-  for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
+  
+  for(let i= 0; i < Math.ceil(catwiseitem.length > 0 ? catwiseitem : data.length / perPage); i++){
     pageNumber.push(i)
-  }
+}
 
   let paginate = (pageNumber) => {
     setCurrentpage(pageNumber + 1);
   }
-
+  
   let prev = () => {
     if (currentPage > 1) {
       setCurrentpage((state) => state - 1)
     }
   }
-
+  
   let next = () => {
     if (currentPage < pageNumber.length) {
       setCurrentpage((state) => state + 1)
     }
   }
-
-  let [catshow, setCatShow] = useState(false)
-  let [colshow, setColShow] = useState(false)
-  let [brashow, setBraShow] = useState(false)
-  let [prishow, setPriShow] = useState(false)
+  
+  
+  useEffect(()=>{
+    setCategory([...new Set(data.map((item)=>item.category))])
+    setBrand([...new Set(data.map((item)=>item.brand))])
+  },[data])
+  
+  
+  let handleCategory = (citem) => {
+    let categoryFilter = data.filter((item)=>item.category == citem)
+    setCatwiseitem(categoryFilter)
+  }
+  let handleBrand = (citem) => {
+    let brandFilter = data.filter((item)=>item.brand == citem)
+    setCatwiseitem(brandFilter)
+  }
   return (
     <>
       <section className='lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0'>
@@ -63,11 +82,9 @@ const Products = () => {
                 <h3 onClick={() => setCatShow(!catshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Category <p>{catshow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {catshow &&
                   <ul>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 1</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 2</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 3</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 4</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Category 5</li>
+                    {category.map((item)=>(
+                    <li onClick={()=>handleCategory(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
+                    ))}
                   </ul>
                 }
               </div>
@@ -87,11 +104,9 @@ const Products = () => {
                 <h3 onClick={() => setBraShow(!brashow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Brand <p>{brashow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {brashow &&
                   <ul>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 1</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 2</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 3</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 4</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>Brand 5</li>
+                    {brand.map((item)=>(
+                    <li onClick={()=>handleBrand(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
+                    ))}
                   </ul>
                 }
               </div>
@@ -135,8 +150,8 @@ const Products = () => {
               </div>
               <Flex>
                 <div className="">
-                  <div className="flex justify-between flex-wrap">
-                    <Post allData={allData} />
+                  <div className="flex gap-x-5 flex-wrap">
+                    <Post allData={allData} catwiseitem={catwiseitem} />
                   </div>
                   <div className="text-end">
                     <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} />

@@ -26,7 +26,9 @@ const Header = () => {
         <Container>
           <Flex className="justify-between items-center">
             <div className="w-1/3 items-center">
+            <Link to="/">
               <img src={Logo} alt="logo" />
+            </Link>
             </div>
             <div className="w-2/3 items-center">
               <ul className={`lg:flex lg:flex-row flex flex-col gap-y-3 gap-x-10  pl-[20px] pt-[20px] lg:pt-0 font-sans text-[#767676] text-[18px] font-medium lg:static fixed duration-[800ms]  ${show == true ? "bg-[#262626] top-[0px] left-0 w-1/2 h-full py-2" : "top-[0px] left-[-250px] h-full"}`}>

@@ -15,7 +15,7 @@ const ProductDetails = () => {
 
   let getData = () => {
     axios
-      .get(`https://dummyjson.com/products/${productId.id}`)
+      .get(`https://dummyjson.com/products?&limit=0${productId.id}`)
       .then((response) => {
         setSingleData(response.data);
       });

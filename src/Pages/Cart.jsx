@@ -5,11 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxCaretRight } from "react-icons/rx";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  cartItemDelete,
-  qtyDecrement,
-  qtyIncrement,
-} from "../components/slice/ProductSlice";
+import { cartItemDelete, qtyDecrement, qtyIncrement } from "../components/slice/ProductSlice";
 import { ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

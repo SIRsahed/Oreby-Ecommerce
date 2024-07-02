@@ -4,7 +4,6 @@ import Flex from './Flex'
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
-import CartImg from "../assets/cart.png"
 import { ImCross } from "react-icons/im";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,8 +45,6 @@ const Navbar = () => {
   let handleDeleteCartItem = (index) => {
     dispatch(cartItemDelete(index))
   }
-
-  console.log(data);
 
   const {totalPrice} = data.reduce((acc, item) => {
     acc.totalPrice += item.price * item.Qty
@@ -103,9 +100,11 @@ const Navbar = () => {
                 <div ref={cartRef} className="cursor-pointer z-40">
                   <div className="relative text-[22px]">
                   <FaShoppingCart />
+                  {data.length > 0 &&
                   <div className="absolute left-[9px] top-[-8px] h-[20px] w-[20px] rounded-full flex justify-center items-center bg-[#767676] text-[15px] text-white">
                     {data.length}
                   </div>
+                  }
                   </div>
                 </div>
                 {cartShow &&
