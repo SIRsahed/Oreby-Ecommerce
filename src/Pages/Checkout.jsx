@@ -3,8 +3,19 @@ import Container from '../components/Container'
 import { Link } from 'react-router-dom'
 import { RxCaretRight } from "react-icons/rx";
 import Flex from '../components/Flex';
+import { useSelector } from 'react-redux';
 
 const Checkout = () => {
+    let data = useSelector((state) => state.product.cartItem);
+
+    const { totalPrice, totalQuantity } = data.reduce(
+        (acc, item) => {
+          acc.totalPrice += item.price * item.Qty;
+          acc.totalQuantity += item.Qty;
+          return acc;
+        },
+        { totalPrice: 0, totalQuantity: 0 }
+      );
     return (
         <>
             <section className="lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0">
@@ -60,7 +71,7 @@ const Checkout = () => {
                                     Total Quantity
                                 </td>
                                 <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-normal">
-                                    100
+                                    {totalQuantity} 
                                 </td>
                             </tr>
                             <tr>
@@ -68,7 +79,7 @@ const Checkout = () => {
                                     Subtotal
                                 </td>
                                 <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#767676] font-normal">
-                                    100 $
+                                    {totalPrice} $
                                 </td>
                             </tr>
                             <tr>
@@ -76,7 +87,7 @@ const Checkout = () => {
                                     Total
                                 </td>
                                 <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-normal">
-                                    100 $
+                                    {totalPrice} $
                                 </td>
                             </tr>
                         </table>

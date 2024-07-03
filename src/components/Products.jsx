@@ -66,6 +66,13 @@ const Products = () => {
     let brandFilter = data.filter((item)=>item.brand == citem)
     setCatwiseitem(brandFilter)
   }
+
+  let [multilist, setMultiList] = useState("")
+
+  let handleMultilist = () => {
+    setMultiList("activelist")
+  }
+
   return (
     <>
       <section className='lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0'>
@@ -126,8 +133,8 @@ const Products = () => {
             <div className="lg:w-[78%] w-[100%]">
               <div className="lg:flex justify-between lg:pb-[50px] pb-[20px] pt-[10px]">
                 <div className="flex gap-x-5 lg:justify-normal justify-center lg:w-[30%] w-100%">
-                  <div className="lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373] text-[20px]"><PiSquaresFourFill /></div>
-                  <div className="lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373] text-[20px]"><GrSort /></div>
+                  <div onClick={()=>setMultiList("")} className={`lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center text-[#737373] border-2  border-[#737373] text-[20px] ${multilist == "activelist" ? "" : "bg-[#262626] text-white"}`}><PiSquaresFourFill /></div>
+                  <div onClick={handleMultilist} className={`lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center text-[#737373] border-2  border-[#737373] text-[20px] ${multilist == "activelist" ? "bg-[#262626] text-white" : ""}`}><GrSort /></div>
                 </div>
                 <div className="flex lg:justify-end justify-between lg:gap-x-10 lg:w-[70%] w-[100%] pt-[20px] lg:pt-0">
                   <div className="">
@@ -150,8 +157,8 @@ const Products = () => {
               </div>
               <Flex>
                 <div className="">
-                  <div className="flex gap-x-5 flex-wrap">
-                    <Post allData={allData} catwiseitem={catwiseitem} />
+                  <div className="">
+                    <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} />
                   </div>
                   <div className="text-end">
                     <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} />
