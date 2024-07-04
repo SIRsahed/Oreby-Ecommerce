@@ -101,9 +101,9 @@ const Post = ({ allData, catwiseitem, multilist }) => {
       }
       </div>
         :
-        <div className={`${multilist == "activelist" ? "" : "flex gap-x-5 flex-wrap"}`}>
+        <div className={`${multilist == "activeList" ? "" : "flex justify-between flex-wrap" }`}>
           {allData.map((item) => (
-            <div className="lg:w-[32%] w-[48%] px-0 group mb-[30px]">
+          <div className="lg:w-[32%] w-[48%] px-0 group mb-[30px]">
                 <div className="">
                   <div className="relative overflow-hidden">
                     <Link to={`/shop/${item.id}`}>
@@ -147,7 +147,7 @@ const Post = ({ allData, catwiseitem, multilist }) => {
                   </div>
                   </Link>
                 </div>
-            </div>
+          </div>
           ))}
         </div>
       }

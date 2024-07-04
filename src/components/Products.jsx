@@ -157,7 +157,7 @@ const Products = () => {
               </div>
               <Flex>
                 <div className="">
-                  <div className="">
+                  <div className="flex">
                     <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} />
                   </div>
                   <div className="text-end">
