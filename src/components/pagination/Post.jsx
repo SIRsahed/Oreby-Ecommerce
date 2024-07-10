@@ -41,7 +41,7 @@ const Post = ({ allData, catwiseitem, multilist }) => {
     <>
       {catwiseitem.length > 0 ?
       <div className="">
-        <div className="flex gap-x-5 flex-wrap">
+        <div className="flex gap-x-3 flex-wrap">
         {itemlimit.map((item) => (
           <div className="lg:w-[32%] w-[48%] px-0 group mb-[30px]">
               <div className="">
@@ -101,13 +101,13 @@ const Post = ({ allData, catwiseitem, multilist }) => {
       }
       </div>
         :
-        <div className={`${multilist == "activeList" ? "" : "flex justify-between flex-wrap" }`}>
+        <div className={`${multilist == "activelist" ? "w-[200%]" : "flex justify-between flex-wrap"}`}>
           {allData.map((item) => (
           <div className="lg:w-[32%] w-[48%] px-0 group mb-[30px]">
                 <div className="">
                   <div className="relative overflow-hidden">
                     <Link to={`/shop/${item.id}`}>
-                    <img className='!w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
+                    <img className='w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
                     </Link>
                     <h5 className='absolute top-[10px] left-[20px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>
                       <div className="w-full lg:h-[50%] bg-[#fff] absolute left-0 bottom-[-150px] lg:pt-[25px] pt-[10px] flex flex-col lg:gap-y-2 gap-y-1 duration-500 ease-in-out group-hover:bottom-0">

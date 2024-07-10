@@ -7,6 +7,8 @@ import { FaStar } from "react-icons/fa";
 import { Accordion } from "flowbite-react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../components/slice/ProductSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetails = () => {
   let [singleData, setSingleData] = useState([]);
@@ -15,7 +17,7 @@ const ProductDetails = () => {
 
   let getData = () => {
     axios
-      .get(`https://dummyjson.com/products?&limit=0${productId.id}`)
+      .get(`https://dummyjson.com/products/${productId.id}`)
       .then((response) => {
         setSingleData(response.data);
       });
@@ -27,6 +29,7 @@ const ProductDetails = () => {
 
   let handleAddToCart = (item) => {
     dispatch(addToCart({ ...item, Qty: 1 }));
+    toast.success('Added to cart successfully')
   };
 
   return (
@@ -128,11 +131,23 @@ const ProductDetails = () => {
               <button className="font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white">
                 Add to Wish List
               </button>
-              <Link to="/cart" onClick={() => handleAddToCart(singleData)}>
-                <button className="font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white">
+              <div>
+                <button onClick={() => handleAddToCart(singleData)} className="font-sans font-bold text-[14px] text-[#262626] h-[60px] w-[200px] border-2 border-[#262626] duration-300 ease-in-out hover:bg-[#000] hover:text-white">
                   Add to Cart
                 </button>
-              </Link>
+                <ToastContainer
+                            position="top-center"
+                            autoClose={900}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover={false}
+                            theme="dark"
+                          />
+              </div>
             </div>
             <div className="py-6 border-b-[1px] border-[#F0F0F0]">
               <Accordion

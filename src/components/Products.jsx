@@ -88,7 +88,7 @@ const Products = () => {
               <div className="">
                 <h3 onClick={() => setCatShow(!catshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Category <p>{catshow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {catshow &&
-                  <ul>
+                  <ul className='h-[400px] overflow-y-scroll'>
                     {category.map((item)=>(
                     <li onClick={()=>handleCategory(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
                     ))}
@@ -110,7 +110,7 @@ const Products = () => {
               <div className="lg:pt-[50px] pt-3">
                 <h3 onClick={() => setBraShow(!brashow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Brand <p>{brashow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {brashow &&
-                  <ul>
+                  <ul className='h-[400px] overflow-y-scroll'>
                     {brand.map((item)=>(
                     <li onClick={()=>handleBrand(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
                     ))}
@@ -157,7 +157,7 @@ const Products = () => {
               </div>
               <Flex>
                 <div className="">
-                  <div className="flex">
+                  <div className="">
                     <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} />
                   </div>
                   <div className="text-end">
