@@ -23,12 +23,13 @@ const Footer = () => {
                   <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Shop</li>
                 </Link>
 
-                <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>About</li>
+                <Link to="/about">
+                  <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>About</li>
+                </Link>
 
-                <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>
-                  Contacts
-                </li>
-
+                <Link to="/contact">
+                  <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>Contact</li>
+                </Link>
                 <li className='font-sans text-[14px] font-normal text-[#6D6D6D] leading-[23px] py-1'>
                   Journal
                 </li>
@@ -61,7 +62,9 @@ const Footer = () => {
             </div>
             <div className="lg:w-[25%]  w-[50%] flex justify-end lg:justify-start items-center lg:items-start">
               <div className="">
+                <Link to="/">           
                 <img src={Logo} alt="logo"/>
+                </Link>
               </div>
             </div>
       </Flex>
