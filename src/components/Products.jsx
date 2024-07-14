@@ -22,7 +22,6 @@ const Products = () => {
   let [brand, setBrand] = useState([])
   let [catwiseitem, setCatwiseitem] = useState([])
 
-  console.log(catwiseitem);
   
   let lastPage = currentPage * perPage
   let firstPage = lastPage - perPage
@@ -73,6 +72,23 @@ const Products = () => {
     setMultiList("activelist")
   }
 
+  let [lowPrice, setLowPrice] = useState("")
+  let [highPrice, setHighPrice] = useState("")
+
+  let [pricewiseItem, setPricewiseItem] = useState([])
+
+  let handlePriceFilter = (value) => {
+    setLowPrice(value.low)
+    setHighPrice(value.high)
+    let PriceFilter = data.filter((item)=>item.price > value.low && item.price < value.high)
+    setPricewiseItem(PriceFilter);
+  }
+  let handlePriceFilterHigh = (value) => {
+    setLowPrice(value.low)
+    let PriceFilter = data.filter((item)=>item.price > value.low)
+    setPricewiseItem(PriceFilter);
+  }
+
   return (
     <>
       <section className='lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0'>
@@ -88,7 +104,7 @@ const Products = () => {
               <div className="">
                 <h3 onClick={() => setCatShow(!catshow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Category <p>{catshow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {catshow &&
-                  <ul className='h-[400px] overflow-y-scroll'>
+                  <ul className='lg:h-[400px] h-[100px] overflow-y-scroll'>
                     {category.map((item)=>(
                     <li onClick={()=>handleCategory(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
                     ))}
@@ -110,7 +126,7 @@ const Products = () => {
               <div className="lg:pt-[50px] pt-3">
                 <h3 onClick={() => setBraShow(!brashow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Brand <p>{brashow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {brashow &&
-                  <ul className='h-[400px] overflow-y-scroll'>
+                  <ul className='lg:h-[400px] h-[100px] overflow-y-scroll'>
                     {brand.map((item)=>(
                     <li onClick={()=>handleBrand(item)} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0] capitalize'>{item}</li>
                     ))}
@@ -120,12 +136,14 @@ const Products = () => {
               <div className="lg:pt-[50px] pt-3">
                 <h3 onClick={() => setPriShow(!prishow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Price <p>{prishow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {prishow &&
-                  <ul>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$0.00 - $9.99</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$10.00 - $19.99</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$20.00 - $29.99</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$30.00 - $39.99</li>
-                    <li className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$40.00 - $69.99</li>
+                  <ul className='lg:h-[400px] h-[100px] overflow-y-scroll'>
+                    <li onClick={()=>handlePriceFilter({low:0.00, high:49.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$0.00 - $49.99</li>
+                    <li onClick={()=>handlePriceFilter({low:50.00, high:99.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$50.00 - $99.99</li>
+                    <li onClick={()=>handlePriceFilter({low:100.00, high:199.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$100.00 - $199.99</li>
+                    <li onClick={()=>handlePriceFilter({low:200.00, high:499.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$200.00 - $499.99</li>
+                    <li onClick={()=>handlePriceFilter({low:500.00, high:999.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$500.00 - $999.99</li>
+                    <li onClick={()=>handlePriceFilter({low:1000.00, high:4999.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$1000.00 - $4999.99</li>
+                    <li onClick={()=>handlePriceFilterHigh({low:5000.00})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$5000.00 - Above</li>
                   </ul>
                 }
               </div>
@@ -158,9 +176,9 @@ const Products = () => {
               <Flex>
                 <div className="">
                   <div className="">
-                    <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} />
+                    <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} pricewiseItem={pricewiseItem} />
                   </div>
-                  <div className="text-end">
+                  <div className="text-start">
                     <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} />
                   </div>
                 </div>

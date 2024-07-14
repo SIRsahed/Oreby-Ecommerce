@@ -118,7 +118,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="w-[15%] text-center">
-                  <h4>${item.price * item.Qty}</h4>
+                  <h4>${(item.price * item.Qty).toFixed(2)}</h4>
                 </div>
               </Flex>
               <Flex className="gap-x-5 py-4 border-[1px] pl-5 items-center">
@@ -193,7 +193,7 @@ const Cart = () => {
                     Subtotal
                   </td>
                   <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#767676] font-normal">
-                    {totalPrice} $
+                    {totalPrice.toFixed(2)} $
                   </td>
                 </tr>
                 <tr>
@@ -201,7 +201,7 @@ const Cart = () => {
                     Total
                   </td>
                   <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-normal">
-                    {totalPrice} $
+                    {totalPrice.toFixed(2)} $
                   </td>
                 </tr>
               </table>

@@ -35,8 +35,8 @@ const Header = () => {
                 <li className='text-white flex justify-between items-center'>Menu <RxCross2 className='mr-[20px]'/></li>
                 <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#"><Link to="/">Home</Link></a></li>
                 <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#"><Link to="/shop">Shop</Link></a></li>
-                <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#">About</a></li>
-                <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#">Contacts</a></li>
+                <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#"><Link to="/about">About</Link></a></li>
+                <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#"><Link to="/contact">Contact</Link></a></li>
                 <li><a className='lg:hover:text-[#262626] hover:text-white lg:border-none border-b-2 border-[#767676] rounded-sm' href="#">Journal</a></li>
               </ul>
             </div>

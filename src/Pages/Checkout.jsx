@@ -79,7 +79,7 @@ const Checkout = () => {
                                     Subtotal
                                 </td>
                                 <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#767676] font-normal">
-                                    {totalPrice} $
+                                    {totalPrice.toFixed(2)} $
                                 </td>
                             </tr>
                             <tr>
@@ -87,7 +87,7 @@ const Checkout = () => {
                                     Total
                                 </td>
                                 <td className="border-2 py-2 w-[250px] text-start pl-5 font-sans text-[16px] text-[#262626] font-normal">
-                                    {totalPrice} $
+                                    {totalPrice.toFixed(2)} $
                                 </td>
                             </tr>
                         </table>

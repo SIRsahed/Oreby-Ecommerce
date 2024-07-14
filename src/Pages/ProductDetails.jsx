@@ -105,18 +105,6 @@ const ProductDetails = () => {
               </div>
               <div className=""></div>
             </div>
-            <div className="flex gap-x-6 py-6 items-center border-b-[1px] border-[#F0F0F0]">
-              <div className="">
-                <h3 className="font-sans font-bold text-[16px] text-[#262626] uppercase">
-                  Quantity :
-                </h3>
-              </div>
-              <div className="flex gap-x-6 justify-around border-[1px] border-[#262626] py-2 w-[150px] ms-[18px]">
-                <div className="">-</div>
-                <div className="">1</div>
-                <div className="">+</div>
-              </div>
-            </div>
             <div className="flex gap-x-6 items-center py-6 border-b-[1px] border-[#F0F0F0]">
               <div className="">
                 <h3 className="font-sans font-bold text-[16px] text-[#262626] uppercase">
@@ -136,17 +124,17 @@ const ProductDetails = () => {
                   Add to Cart
                 </button>
                 <ToastContainer
-                            position="top-center"
-                            autoClose={900}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover={false}
-                            theme="dark"
-                          />
+                  position="top-center"
+                  autoClose={900}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover={false}
+                  theme="dark"
+                />
               </div>
             </div>
             <div className="py-6 border-b-[1px] border-[#F0F0F0]">
