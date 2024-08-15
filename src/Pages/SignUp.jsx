@@ -1,9 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from '../components/Container'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { RxCaretRight } from "react-icons/rx";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
+
 
 const SignUp = () => {
+
+    const auth = getAuth();
+    const db = getDatabase();
+    let navigate = useNavigate()
+
+    let [passshow, setPassShow] = useState(false)
+
+    let [firstName, setFirstName] = useState("");
+    let [email, setEmail] = useState("")
+    let [password, setPassword] = useState("")
+
+    let handleFirstName = (e) => {
+        setFirstName(e.target.value);
+    };
+
+    let handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    let handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+
+
+    let handleSignup = (e) => {
+        e.preventDefault()
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((user) => { })
+            .then(() => {
+                set(ref(db, 'users/'), {
+                    username: firstName,
+                    email: email,
+                });
+            })
+            .then(() => {
+                navigate("/login")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    }
+
     return (
         <section className="lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0">
             <Container>
@@ -24,7 +72,7 @@ const SignUp = () => {
                         <div className='flex justify-between'>
                             <div className="w-[48%]">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">First Name</label> <br />
-                                <input className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="text" placeholder='First Name' />
+                                <input onChange={handleFirstName} className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="text" placeholder='First Name' />
                             </div>
                             <div className="w-[48%]">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">Last Name</label> <br />
@@ -34,7 +82,7 @@ const SignUp = () => {
                         <div className='flex justify-between'>
                             <div className="w-[48%]">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">Email address</label> <br />
-                                <input className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="email" placeholder='company@domain.com' />
+                                <input onChange={handleEmail} className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="email" placeholder='company@domain.com' />
                             </div>
                             <div className="w-[48%]">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">Telephone</label> <br />
@@ -78,13 +126,15 @@ const SignUp = () => {
                     <div className="pb-[60px] mb-[60px] border-b-[1px] border-[#F0F0F0]">
                         <h2 className='font-sans text-[#262626] lg:text-[36px] text-[20px] font-bold mb-[50px]'>Your Password</h2>
                         <div className='flex justify-between'>
-                            <div className="w-[48%]">
+                            <div className="w-[48%] relative">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">Password</label> <br />
-                                <input className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="text" placeholder='Password' />
+                                <input onChange={handlePassword} className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type={passshow == true ? "text" : "password"} placeholder='Password' />
+                                <div onClick={() => setPassShow(!passshow)} className="absolute top-10 right-0">{passshow ? <FaRegEye /> : <FaRegEyeSlash />}</div>
                             </div>
-                            <div className="w-[48%]">
+                            <div className="w-[48%] relative">
                                 <label className='font-sans text-[#262626] text-[16px] font-bold' htmlFor="">Repeat Password</label> <br />
-                                <input className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type="text" placeholder='Repeat Password' />
+                                <input className='w-full pb-4 pt-3 border-b-[1px] border-[#F0F0F0] mb-[30px] outline-none' type={passshow == true ? "text" : "password"} placeholder='Password' />
+                                <div onClick={() => setPassShow(!passshow)} className="absolute top-10 right-0">{passshow ? <FaRegEye /> : <FaRegEyeSlash />}</div>
                             </div>
                         </div>
                     </div>
@@ -92,9 +142,7 @@ const SignUp = () => {
                         <h3 className='ont-sans text-[#767676] text-[14px] font-normal pb-6'>I have read and agree to the Privacy Policy</h3>
                         <h3 className='ont-sans text-[#767676] text-[14px] font-normal'>Subscribe Newsletter</h3>
                     </div>
-                    <Link to="/login">                   
-                    <button className='font-sans text-[#fff] text-[16px] bg-[#262626] font-bold px-[70px] py-[10px] border-[1px] border-[#2B2B2B]'>Login</button>
-                    </Link>
+                    <button onClick={handleSignup} className='font-sans text-[#fff] text-[16px] bg-[#262626] font-bold px-[70px] py-[10px] border-[1px] border-[#2B2B2B]'>Login</button>
                 </form>
             </Container>
         </section >

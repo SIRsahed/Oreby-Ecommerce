@@ -89,7 +89,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className='bg-[#F5F5F3] lg:pb-[25px] pb-3 lg:pt-[90px] pt-[50px] px-2 lg:px-0'>
+      <header className='bg-[#F5F5F3] lg:pb-[25px] pb-3 lg:pt-[90px] pt-[59px] px-2 lg:px-0'>
         <Container>
           <Flex className="justify-between items-center">
             <div className="lg:w-[30%] w-[10%] relative z-40">
@@ -137,7 +137,7 @@ const Navbar = () => {
             </div>
             <div className="lg:w-[30%] w-[20%] flex justify-end relative">
               <div className="flex lg:gap-x-4 gap-x-2 z-40">
-                <div ref={userRef} className="flex cursor-pointer z-40 text-[22px]">
+                <div ref={userRef} className="flex cursor-pointer z-40 text-[16px]">
                   <FaUser />
                   <IoMdArrowDropdown />
                 </div>
@@ -151,7 +151,7 @@ const Navbar = () => {
                   </div>
                 }
                 <div ref={cartRef} className="cursor-pointer z-40">
-                  <div className="relative text-[22px] z-50">
+                  <div className="relative text-[16px] z-50">
                     <FaShoppingCart />
                     {data.length > 0 &&
                       <div className="absolute left-[9px] top-[-8px] h-[20px] w-[20px] rounded-full flex justify-center items-center bg-[#767676] text-[15px] text-white">

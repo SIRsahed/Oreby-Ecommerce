@@ -13,7 +13,7 @@ import PaginationArea from './pagination/PaginationArea';
 const Products = () => {
   let data = useContext(apiData)
   let [currentPage, setCurrentpage] = useState(1)
-  let [perPage, setPerPage] = useState(18)
+  let [perPage, setPerPage] = useState(15)
   let [catshow, setCatShow] = useState(false)
   let [colshow, setColShow] = useState(false)
   let [brashow, setBraShow] = useState(false)
@@ -89,6 +89,20 @@ const Products = () => {
     setPricewiseItem(PriceFilter);
   }
 
+  let handleShownProduct = (e) => {
+    setPerPage(e.target.value); 
+  }
+
+  let [resPagination, setResPagination] = useState(false)
+
+  useEffect( ()=> {
+    if(window.innerWidth > 1024){
+      setResPagination(true)
+    }else{
+      setResPagination(false)
+    }
+  }, [])
+
   return (
     <>
       <section className='lg:pt-[80px] pt-[10px] lg:pb-[90px] pb-[30px] px-1 lg:px-0'>
@@ -136,7 +150,7 @@ const Products = () => {
               <div className="lg:pt-[50px] pt-3">
                 <h3 onClick={() => setPriShow(!prishow)} className='font-sans lg:text-[20px] text-[12px] font-bold text-[#262626] flex justify-between items-center cursor-pointer'>Shop by Price <p>{prishow == true ? <FaCaretUp /> : <FaCaretDown />}</p></h3>
                 {prishow &&
-                  <ul className='lg:h-[400px] h-[100px] overflow-y-scroll'>
+                  <ul className=''>
                     <li onClick={()=>handlePriceFilter({low:0.00, high:49.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$0.00 - $49.99</li>
                     <li onClick={()=>handlePriceFilter({low:50.00, high:99.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$50.00 - $99.99</li>
                     <li onClick={()=>handlePriceFilter({low:100.00, high:199.99})} className='font-sans lg:text-[16px] text-[12px] font-normal text-[#767676] lg:py-5 py-2 border-b-2 border-[#F0F0F0]'>$100.00 - $199.99</li>
@@ -165,10 +179,10 @@ const Products = () => {
                   </div>
                   <div className="">
                     <label htmlFor="" className='text-[16px] font-sans text-[#767676] font-normal'>Show : </label>
-                    <select name="" id="" className='border-[1px] border-[#767676] rounded-sm text-start lg:px-[60px] px-[25px] py-[5px] text-[16px] font-sans text-[#767676] font-normal'>
-                      <option value="">36</option>
-                      <option value="">30</option>
-                      <option value="">24</option>
+                    <select onChange={handleShownProduct} name="" id="" className='border-[1px] border-[#767676] rounded-sm text-start lg:px-[60px] px-[25px] py-[5px] text-[16px] font-sans text-[#767676] font-normal'>
+                      <option value="15">15</option>
+                      <option value="21">21</option>
+                      <option value="30">30</option>
                     </select>
                   </div>
                 </div>
@@ -179,7 +193,7 @@ const Products = () => {
                     <Post allData={allData} catwiseitem={catwiseitem} multilist={multilist} pricewiseItem={pricewiseItem} />
                   </div>
                   <div className="text-start">
-                    <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} />
+                    <PaginationArea pageNumber={pageNumber} paginate={paginate} prev={prev} next={next} currentPage={currentPage} resPagination={resPagination} />
                   </div>
                 </div>
               </Flex>
