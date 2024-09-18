@@ -67,7 +67,7 @@ const Navbar = () => {
     if (e.target.value == "") {
       setSearchFilter([])
     } else {
-      let searchItem = info.filter((item) => item.title.toLowerCase().includes(e.target.value));
+      let searchItem = info.filter((item) => item.title.toLowerCase().startsWith(e.target.value.toLowerCase()));
       setSearchFilter(searchItem)
     }
   }
@@ -117,14 +117,14 @@ const Navbar = () => {
                   <FaSearch />
                 </div>
                 {searchFilter.length > 0 &&
-                  <div className="absolute z-40 h-[300px] overflow-y-scroll">
+                  <div className="absolute z-40 max-h-[300px] overflow-y-auto w-full">
                     {searchFilter.map((item) => (
                       <div onClick={()=>handleSingleSearch(item.id)} className="border-b-2">
                         <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-1">
-                          <div className="w-[30%]">
+                          <div className="w-[20%]">
                             <img className='h-[80px] w-full' src={item.thumbnail} alt="cart" />
                           </div>
-                          <div className="w-[60%] text-[#262626] text-[16px] font-sans font-bold">
+                          <div className="w-3/4 text-[#262626] text-[16px] font-sans font-bold">
                             <h3 className='pb-[12px]'>{item.title}</h3>
                           </div>
                         </div>
