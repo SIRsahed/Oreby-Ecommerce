@@ -71,11 +71,12 @@ const NewArrival = () => {
                         <h2 className='font-sans text-[#262626] lg:text-[36px] text-[20px] font-bold lg:pb-[48px] pb-[10px]'>New Arrivals</h2>
                     </div>
                     <Slider {...settings}>
-                        {data.map((item) => (
+                        {data.map((item, index) => (
+                            // eslint-disable-next-line react/jsx-key
                             <div className="px-[10px] group">
                                 <div className="relative overflow-hidden">
                                     <Link to="/shop">
-                                        <img className='w-full lg:h-[250px] h-[170px]' src={item.thumbnail} alt="product_img" />
+                                        <img key={index} className='w-full lg:h-[250px] h-[170px]' src={item.images[0]} alt="product_img" />
                                     </Link>
                                     <h5 className='absolute top-[20px] left-[26px] font-sans text-[#fff] lg:text-[16px] text-[11px] font-bold bg-[#262626] py-[8px] px-[28px] rounded-sm'>{item.discountPercentage}%</h5>
                                     <div className="w-full lg:h-[50%] bg-[#fff] absolute left-0 bottom-[-150px] lg:pt-[25px] pt-[10px] lg:pr-[30px] pr-[15px] flex flex-col lg:gap-y-2 gap-y-1 duration-500 ease-in-out group-hover:bottom-0">

@@ -49,6 +49,8 @@ const Products = () => {
       setCurrentpage((state) => state + 1)
     }
   }
+
+  
   
   
   useEffect(()=>{
@@ -80,7 +82,7 @@ const Products = () => {
   let handlePriceFilter = (value) => {
     setLowPrice(value.low)
     setHighPrice(value.high)
-    let PriceFilter = data.filter((item)=>item.price > value.low && item.price < value.high)
+    let PriceFilter = data.filter((item)=>item.price > lowPrice && item.price < highPrice)
     setPricewiseItem(PriceFilter);
   }
   let handlePriceFilterHigh = (value) => {
